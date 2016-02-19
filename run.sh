@@ -10,7 +10,8 @@ for i in $PCS_NODES; do
     echo "$IP $NAME" >> /etc/hosts
 done
 
-export  GEM_HOME=/usr/lib/pcsd/vendor/bundle/ruby
+/usr/share/corosync/corosync start
+/usr/sbin/pacemakerd -f
+/usr/lib/pcsd/pcsd start
 
-exec /usr/bin/ruby -I/usr/lib/pcsd /usr/lib/pcsd/ssl.rb
-
+wait
