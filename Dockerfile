@@ -10,6 +10,12 @@ COPY run.sh /run.sh
 
 EXPOSE 2224
 
+RUN mkdir -p /etc/systemd/system-preset/
+RUN echo 'enable pcsd.service' > /etc/systemd/system-preset/00-pcsd.preset
+RUN systemctl enable pcsd
+ENV container=docker
+
+
 ENV PCS_PASS=secret
 
 CMD "/run.sh"

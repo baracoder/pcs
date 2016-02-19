@@ -10,8 +10,4 @@ for i in $PCS_NODES; do
     echo "$IP $NAME" >> /etc/hosts
 done
 
-/usr/sbin/corosync &
-/usr/sbin/pacemakerd -f &
-/usr/lib/pcsd/pcsd start &
-
-wait
+exec /usr/lib/systemd/systemd --system
