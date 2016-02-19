@@ -1,3 +1,22 @@
+Fork of pschiffe/pcs
+
+this image is modified to start pcs directly without running systemd.
+
+You can also specify the password as an environment variable.
+
+```
+docker run .. -e PCS_PASS=secret ...
+```
+
+And a list of nodes with their IP addresses
+```
+PCS_NODES="node-a:10.0.0.1 node-b:10.0.0.2"
+```
+The /etc/hosts file will be patched
+
+
+Original README:
+
 # pcs
 
 [Docker](https://www.docker.com/) image with [Pacemaker](http://clusterlabs.org/) and [Corosync](https://corosync.github.io/corosync/) managed by [pcs](https://github.com/feist/pcs).
